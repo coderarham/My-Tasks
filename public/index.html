@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main App Section -->
+        <div id="main-section" class="section">
+            <header>
+                <h1>My Tasks</h1>
+                <div class="header-actions">
+                    <span id="user-info">Task Management System</span>
+                </div>
+            </header>
+
+            <div class="container">
+                <!-- Task Form -->
+                <div class="task-form-container">
+                    <h2>Add New Task</h2>
+                    <form id="task-form">
+                        <input type="text" id="task-title" placeholder="Task title" required>
+                        <textarea id="task-description" placeholder="Description"></textarea>
+                        <select id="task-priority">
+                            <option value="low">Low Priority</option>
+                            <option value="medium" selected>Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                        <input type="datetime-local" id="task-due-date">
+                        <button type="submit">Add Task</button>
+                    </form>
+                </div>
+
+                <!-- Tasks Section -->
+                <div class="tasks-section">
+                    <!-- Filters -->
+                    <div class="filters">
+                        <select id="status-filter" onchange="loadTasks()">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <select id="priority-filter" onchange="loadTasks()">
+                            <option value="">All Priorities</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <!-- Tasks List -->
+                    <div id="tasks-container">
+                        <div id="tasks-list"></div>
+                    </div>
+                </div>
+
+                <!-- Analytics -->
+                <div class="analytics-container">
+                    <h2>Analytics</h2>
+                    <div id="analytics-content">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h3>Total Tasks</h3>
+                                <span id="total-tasks">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Completed</h3>
+                                <span id="completed-tasks">0</span>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Completion Rate</h3>
+                                <span id="completion-rate">0%</span>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Overdue</h3>
+                                <span id="overdue-tasks">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications -->
+    <div id="notifications"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
